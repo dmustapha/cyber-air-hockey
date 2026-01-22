@@ -8,6 +8,7 @@ import React from 'react';
 import { useThemedStyles } from '@/lib/cyber/useThemedStyles';
 import {
   HeroSection,
+  ArenaShowcase,
   ProfilePreview,
   LeaderboardTeaser,
   SeasonBanner,
@@ -20,6 +21,9 @@ export default function CyberHomePage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Arena Showcase Section */}
+      <ArenaShowcase />
 
       {/* Content Section */}
       <section className="max-w-7xl mx-auto px-4 py-12">
