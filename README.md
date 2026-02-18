@@ -81,7 +81,7 @@ Choose mode: VS AI (offline) or VS Player (online)
 ## Running Locally
 
 ```bash
-git clone https://github.com/dmz4pf/cyber-air-hockey.git
+git clone https://github.com/dmustapha/cyber-air-hockey.git
 cd cyber-air-hockey
 npm install
 npm run dev
