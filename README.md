@@ -1,6 +1,6 @@
 # Cyber Air Hockey — Multiplayer Web3 Esports Game
 
-> Real-time air hockey with ELO rankings, blockchain match records, and a full esports meta.
+Real-time air hockey with ELO rankings, on-chain match records, and a full esports layer.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
@@ -11,13 +11,13 @@
 
 ## Live Demo
 
-**[→ cyber-air-hockey.vercel.app](https://cyber-air-hockey.vercel.app)**
+**[cyber-air-hockey.vercel.app](https://cyber-air-hockey.vercel.app)**
 
 ---
 
 ## What Is Cyber Air Hockey?
 
-A browser-based multiplayer air hockey game with a full competitive esports layer — ELO rating system, 6 rank tiers, seasonal leaderboards, 25+ achievements, and on-chain match verification via MetaMask. Play against AI offline or challenge real opponents over WebSocket with results recorded on-chain.
+Browser-based air hockey with a full competitive structure built on top. ELO rating system, 6 rank tiers, seasonal leaderboards, 25+ achievements, and match results verified on-chain via MetaMask. Play against the AI offline or find opponents over WebSocket.
 
 ---
 
@@ -31,13 +31,13 @@ A browser-based multiplayer air hockey game with a full competitive esports laye
 
 ## Features
 
-- **Real-time Multiplayer** — WebSocket-powered physics engine (Matter.js) for sub-50ms gameplay
-- **ELO Rating System** — 6 rank tiers from Bronze to Master with skill-based matchmaking
-- **Blockchain Match Records** — On-chain verification via MetaMask wallet
-- **VS AI Mode** — Offline practice against computer opponents
-- **Season System** — Live competitive seasons with seasonal leaderboards
-- **25+ Achievements** — Unlock titles and badges as you play
-- **Player Profiles** — Stats, match history, win rates, and rank progression
+- **Real-time multiplayer**: WebSocket physics engine (Matter.js) with low-latency game state sync
+- **ELO rating system**: 6 rank tiers from Bronze to Master with skill-based matchmaking
+- **On-chain match records**: Match results verified via MetaMask wallet
+- **VS AI mode**: Offline play against computer opponents
+- **Season system**: Live competitive seasons with seasonal leaderboards
+- **Achievements**: 25+ unlockable titles and badges
+- **Player profiles**: Stats, match history, win rates, and rank progression
 
 ---
 
@@ -58,22 +58,22 @@ A browser-based multiplayer air hockey game with a full competitive esports laye
 
 ```
 Player connects
-      │
-      ▼
+      |
+      v
 Choose mode: VS AI (offline) or VS Player (online)
-      │
-      ├── VS AI: Physics runs client-side (Matter.js)
-      │
-      └── VS Player:
-            │
-            ▼
+      |
+      +-- VS AI: physics runs client-side (Matter.js)
+      |
+      +-- VS Player:
+            |
+            v
          WebSocket server matches opponents
-            │
-            ▼
-         Real-time game state sync (<50ms)
-            │
-            ▼
-         Match result signed + recorded on-chain
+            |
+            v
+         Real-time game state sync
+            |
+            v
+         Match result signed and recorded on-chain
 ```
 
 ---
@@ -101,14 +101,14 @@ cyber-air-hockey/
 ├── src/
 │   ├── app/
 │   │   └── (cyber)/
-│   │       ├── game/        # Game canvas + physics
+│   │       ├── game/        # Game canvas and physics
 │   │       ├── leaderboard/ # Global ELO rankings
 │   │       ├── profile/     # Player stats
 │   │       └── settings/    # Account settings
 │   └── components/cyber/    # UI components
 ├── server/                  # Node.js WebSocket server
 │   └── src/
-│       ├── roomManager.ts   # Matchmaking + game rooms
+│       ├── roomManager.ts   # Matchmaking and game rooms
 │       └── index.ts         # WS server entry
 └── contracts/               # On-chain match verification
 ```
