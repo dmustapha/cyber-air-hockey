@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cyber Air Hockey — Multiplayer Web3 Esports Game
 
-## Getting Started
+> Real-time air hockey with ELO rankings, blockchain match records, and a full esports meta.
 
-First, run the development server:
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
+[![WebSocket](https://img.shields.io/badge/WebSocket-real--time-green)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![Cyber Air Hockey Home](docs/images/home.png)
+
+## Live Demo
+
+**[→ air-hockey-ten.vercel.app](https://air-hockey-ten.vercel.app)**
+
+---
+
+## What Is Cyber Air Hockey?
+
+A browser-based multiplayer air hockey game with a full competitive esports layer — ELO rating system, 6 rank tiers, seasonal leaderboards, 25+ achievements, and on-chain match verification via MetaMask. Play against AI offline or challenge real opponents over WebSocket with results recorded on-chain.
+
+---
+
+## Screenshots
+
+| Game Modes | Global Rankings |
+|-----------|----------------|
+| ![Game](docs/images/game.png) | ![Leaderboard](docs/images/leaderboard.png) |
+
+---
+
+## Features
+
+- **Real-time Multiplayer** — WebSocket-powered physics engine (Matter.js) for sub-50ms gameplay
+- **ELO Rating System** — 6 rank tiers from Bronze to Master with skill-based matchmaking
+- **Blockchain Match Records** — On-chain verification via MetaMask wallet
+- **VS AI Mode** — Offline practice against computer opponents
+- **Season System** — Live competitive seasons with seasonal leaderboards
+- **25+ Achievements** — Unlock titles and badges as you play
+- **Player Profiles** — Stats, match history, win rates, and rank progression
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Next.js 16, TypeScript, Tailwind CSS |
+| Game Physics | Matter.js |
+| Multiplayer | WebSocket (Node.js server) |
+| Blockchain | MetaMask, Ethereum/EVM smart contracts |
+| State | Zustand |
+| Deployment | Vercel (frontend), Railway (WebSocket server) |
+
+---
+
+## How It Works
+
+```
+Player connects
+      │
+      ▼
+Choose mode: VS AI (offline) or VS Player (online)
+      │
+      ├── VS AI: Physics runs client-side (Matter.js)
+      │
+      └── VS Player:
+            │
+            ▼
+         WebSocket server matches opponents
+            │
+            ▼
+         Real-time game state sync (<50ms)
+            │
+            ▼
+         Match result signed + recorded on-chain
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Running Locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+git clone https://github.com/dmz4pf/cyber-air-hockey.git
+cd cyber-air-hockey
+npm install
+npm run dev
+```
 
-## Learn More
+For multiplayer (optional):
+```bash
+cd server && npm install && npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+cyber-air-hockey/
+├── src/
+│   ├── app/
+│   │   └── (cyber)/
+│   │       ├── game/        # Game canvas + physics
+│   │       ├── leaderboard/ # Global ELO rankings
+│   │       ├── profile/     # Player stats
+│   │       └── settings/    # Account settings
+│   └── components/cyber/    # UI components
+├── server/                  # Node.js WebSocket server
+│   └── src/
+│       ├── roomManager.ts   # Matchmaking + game rooms
+│       └── index.ts         # WS server entry
+└── contracts/               # On-chain match verification
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
