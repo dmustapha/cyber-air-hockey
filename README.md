@@ -11,7 +11,7 @@
 
 ## Live Demo
 
-**[→ air-hockey-ten.vercel.app](https://air-hockey-ten.vercel.app)**
+**[→ cyber-air-hockey.vercel.app](https://cyber-air-hockey.vercel.app)**
 
 ---
 
