@@ -1,4 +1,4 @@
-# Cyber Air Hockey — Multiplayer Web3 Esports Game
+# Cyber Air Hockey: Multiplayer Web3 Esports Game
 
 Real-time air hockey with ELO rankings, on-chain match records, and a full competitive layer.
 
